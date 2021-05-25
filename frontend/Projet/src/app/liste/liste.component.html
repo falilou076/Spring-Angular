@@ -1,0 +1,54 @@
+<table class="table marge">
+    <caption class="invisible">Liste des users</caption>
+    <thead>
+        <tr>
+            <th scope="col">Num</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Job</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of Listuser">
+            <th scope="row">{{ i.id }}</th>
+            <td>{{ i.username }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.job }}</td>
+            <td>
+                <span class="mdroite">
+                    <button type="button" data-toggle="modal" data-target="#exampleModalCenter" (click)="getThisUser(i.id)" class="btn btn-light">Maj</button>
+                </span>
+                <span>
+                    <button type="button" (click)="deleteUser(i.id)" class="btn btn-dark">Del</button> 
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Update User</h5>
+        </div>
+        <form #addForm="ngForm" (ngSubmit)="updateUser(addForm); addForm.reset();">
+        <div class="modal-body">
+            <div class="form-group">
+              <input type="text" required class="form-control mbas" placeholder="Your username" ngModel name="username">
+          </div>
+          <div class="form-group">
+            <input type="text" required class="form-control" placeholder="Your job" ngModel name="job">
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" [disabled]="addForm.invalid" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>

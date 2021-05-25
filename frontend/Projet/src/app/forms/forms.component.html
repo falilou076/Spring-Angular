@@ -1,0 +1,21 @@
+<form class="marge" #addForm="ngForm" (ngSubmit)="addUser(addForm); addForm.reset();"> 
+    <div class="alert alert-success" role="alert" *ngIf="success">
+        Enregistré avec succés
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="fail">
+        Enregistrement echoué
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Username</label>
+        <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="Your username" ngModel name="username">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Email</label>
+        <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="Your email" ngModel name="email">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Job</label>
+        <input type="text" required class="form-control" id="formGroupExampleInput2" placeholder="your job" ngModel name="job">
+    </div> 
+    <button type="submit" [disabled]="addForm.invalid" class="btn btn-primary margeButton">Submit</button>
+</form>

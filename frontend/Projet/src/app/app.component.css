@@ -1,0 +1,10 @@
+@media all and (min-width: 200px) and (max-width: 600px) {
+    .bloc {
+      display: block;
+    }
+  }
+@media all and (min-width: 600.1px) and (max-width: 2000px) {
+.bloc {
+    display: flex;
+}
+}
